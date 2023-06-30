@@ -68,10 +68,8 @@ struct ContentView: View {
     
     func loadData() async throws {
         if let loadedData = defaults.object(forKey: "Data") as? Data {
-            print(type(of: loadedData))
             let decoder = JSONDecoder()
             if let decoded = try? decoder.decode(EnvData.self, from: loadedData) {
-                print(decoded.recipeList)
                 envData.recipeList = decoded.recipeList
             }
         }

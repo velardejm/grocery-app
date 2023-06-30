@@ -10,29 +10,20 @@ import SwiftUI
 
 struct RecipeView: View {
     @Binding var recipe: Recipe
+    @State private var dataChanged = false
     @EnvironmentObject var envData: EnvData
     @Environment(\.dismiss) var dismiss
     @State private var originalRecipe = Recipe(name: "", ingredients: [])
+    
     @State private var isShowingSaveConfirmation = false
     @State private var isShowingDismissConfirmation = false
+    @State private var editIngredientsEnabled = false
     
-    @State private var newName = ""
-    @State private var newQuantity: Double? = nil
-    @State private var newUnit = ""
-    
-    @State private var addIngredientEnabled = false
-    
-    var addIngrButtonDisabled: Bool {
-        if (newName.isEmpty || newQuantity == nil || newUnit == "") {
-            return true
-        }
-        return false
-    }
     
     var body: some View {
         GeometryReader {geom in
             List {
-                if (!addIngredientEnabled) {
+                if (!editIngredientsEnabled) {
                     Text(recipe.name.capitalized)
                     Section {
                         ForEach(recipe.ingredients) {recipe in
@@ -46,40 +37,11 @@ struct RecipeView: View {
                     }
                 }
                 
-                if (addIngredientEnabled) {
-                    TextField("Name", text: $recipe.name)
-                    Section {
-                        ForEach($recipe.ingredients) {$ingredient in
-                            IngredientView(ingredient: $ingredient, availableWidth: geom.size.width * 0.85)
-                        }
-                        
-                    }
-                    Section {
-                        HStack {
-                            TextField("Name", text: $newName)
-                            TextField("Quantity", value: $newQuantity, format: .number)
-                            TextField("Unit", text: $newUnit)
-                            Button {
-                                addIngredient()
-                            } label: {
-                                Image(systemName: "plus.circle")
-                            }.disabled(addIngrButtonDisabled)
-                        }.onSubmit {
-                                addIngredient()
-                        }
-                    }
-                    
-                    Section {
-                        Button("Save Changes") {
-                            isShowingSaveConfirmation = true
-                        }.alert("Save changes?", isPresented: $isShowingSaveConfirmation) {
-                            Button("Yes") {
-                                envData.saveData()
-                            }
-                            Button("Cancel") {print("Cancel")}
-                        }
-                    }
+                if (editIngredientsEnabled) {
+                    RecipeEditView(recipe: $recipe, dataChanged:$dataChanged , geom: geom)
                 }
+                
+                
             }.onAppear(perform: storeOriginalRecipe)
                 .navigationBarBackButtonHidden(true)
                 .navigationTitle("Recipe")
@@ -98,10 +60,26 @@ struct RecipeView: View {
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
-                            addIngredientEnabled = true
+                            if(!editIngredientsEnabled) {
+                                editIngredientsEnabled = true
+                            } else {
+                                isShowingSaveConfirmation = true
+                            }
+                            
+                            
                         } label: {
-                            Image(systemName: "square.and.pencil")
-                        }
+                            if !editIngredientsEnabled {Image(systemName: "square.and.pencil")}
+                            if editIngredientsEnabled {
+                                Image(systemName: "externaldrive.badge.checkmark")
+                            }
+                        }.disabled(!dataChanged && editIngredientsEnabled)
+                            .alert("Save changes?",isPresented: $isShowingSaveConfirmation) {
+                                Button("Save") {
+                                    originalRecipe = recipe
+                                    dataChanged = false
+                                }
+                                Button("Cancel") {}
+                            }
                     }
                 }
                 .alert("Discard changes?", isPresented: $isShowingDismissConfirmation) {
@@ -121,13 +99,7 @@ struct RecipeView: View {
         originalRecipe = recipe
     }
     
-    func addIngredient(){
-        let newIngredient = Ingredient(name: newName, quantity: newQuantity ?? 0, unit: newUnit)
-        recipe.ingredients.append(newIngredient)
-        newName = ""
-        newQuantity = nil
-        newUnit = ""
-    }
+
 }
 
 struct RecipeView_Previews: PreviewProvider {

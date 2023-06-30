@@ -24,7 +24,7 @@ struct MyTextFieldStyle: TextFieldStyle {
                 //Image(systemName: imageName)
                 configuration
             }.padding(.leading, 10)
-                .foregroundColor(.gray)
+                .foregroundColor(!isFocused ? .gray : .black)
         }
     }
 }
