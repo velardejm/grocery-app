@@ -19,6 +19,7 @@
 		36A279EF2A4BD30100215840 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A279EE2A4BD30100215840 /* TestView.swift */; };
 		36A279F42A4BEDFE00215840 /* IngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A279F32A4BEDFE00215840 /* IngredientView.swift */; };
 		36A27A182A4C63B500215840 /* MyTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A27A172A4C63B500215840 /* MyTextFieldStyle.swift */; };
+		36C035CD2A4EEBF70016418F /* RecipeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C035CC2A4EEBF70016418F /* RecipeEditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		36A279EE2A4BD30100215840 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		36A279F32A4BEDFE00215840 /* IngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientView.swift; sourceTree = "<group>"; };
 		36A27A172A4C63B500215840 /* MyTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextFieldStyle.swift; sourceTree = "<group>"; };
+		36C035CC2A4EEBF70016418F /* RecipeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +74,6 @@
 				36A279E72A49EC5400215840 /* Views */,
 				36A27A142A4C639600215840 /* ComponentViews */,
 				36A27A132A4C638400215840 /* CustomStyles */,
-				36A279F02A4BD3AB00215840 /* TestComponents */,
 				36A279CD2A49E73300215840 /* GroceryApp.swift */,
 				36A279CF2A49E73300215840 /* ContentView.swift */,
 				36A279D12A49E73400215840 /* Assets.xcassets */,
@@ -111,16 +112,10 @@
 			children = (
 				36A279DC2A49E78300215840 /* RecipeListView.swift */,
 				36A279E82A49EC6900215840 /* RecipeView.swift */,
+				36C035CC2A4EEBF70016418F /* RecipeEditView.swift */,
 				36A279EE2A4BD30100215840 /* TestView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		36A279F02A4BD3AB00215840 /* TestComponents */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TestComponents;
 			sourceTree = "<group>";
 		};
 		36A27A132A4C638400215840 /* CustomStyles */ = {
@@ -212,6 +207,7 @@
 				36A27A182A4C63B500215840 /* MyTextFieldStyle.swift in Sources */,
 				36A279DD2A49E78300215840 /* RecipeListView.swift in Sources */,
 				36A279F42A4BEDFE00215840 /* IngredientView.swift in Sources */,
+				36C035CD2A4EEBF70016418F /* RecipeEditView.swift in Sources */,
 				36A279E42A49E8B800215840 /* Ingredient.swift in Sources */,
 				36A279D02A49E73300215840 /* ContentView.swift in Sources */,
 				36A279E92A49EC6900215840 /* RecipeView.swift in Sources */,
