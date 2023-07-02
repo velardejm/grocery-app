@@ -1,13 +1,13 @@
 [
     {
-        "id": 1001,
+        "id": "839136ac-1913-11ee-be56-0242ac120002",
         "name": "Chicken Adobo",
         "ingredients": [
-            {"id":2001, "name": "chicken", "quantity": 1, "unit": "kg"},
-            {"id":2002, "name": "garlic", "quantity": 1, "unit": "clove"},
-            {"id":2003, "name": "onion", "quantity": 1, "unit": "pcs"},
-            {"id":2004, "name": "soy sauce", "quantity": 100, "unit": "ml"},
-            {"id":2005, "name": "vinegar", "quantity": 50, "unit": "ml"}
+            {"id":"a2db2220-1913-11ee-be56-0242ac120002", "name": "chicken", "quantity": 1, "unit": "kg"},
+            {"id":"a2db2450-1913-11ee-be56-0242ac120002", "name": "garlic", "quantity": 1, "unit": "clove"},
+            {"id":"a2db263a-1913-11ee-be56-0242ac120002", "name": "onion", "quantity": 1, "unit": "pcs"},
+            {"id":"a2db275c-1913-11ee-be56-0242ac120002", "name": "soy sauce", "quantity": 100, "unit": "ml"},
+            {"id":"a2db2860-1913-11ee-be56-0242ac120002", "name": "vinegar", "quantity": 50, "unit": "ml"}
         ]
     }
 ]

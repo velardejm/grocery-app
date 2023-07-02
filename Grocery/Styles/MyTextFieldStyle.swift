@@ -16,15 +16,14 @@ struct MyTextFieldStyle: TextFieldStyle {
     
     func _body(configuration:TextField<Self._Label>) -> some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 8, style: .continuous)
-                .stroke(isFocused ? .green : .gray,
-                        lineWidth: !isFocused ? 0 : 2.5)
-                .frame(height: 40)
+            RoundedRectangle(cornerRadius: 3.5, style: .continuous)
+                .stroke(isFocused ? .green : .gray, lineWidth: !isFocused ? 0.3 : 1)
+                .frame(height: 35)
+            
             HStack {
-                //Image(systemName: imageName)
                 configuration
             }.padding(.leading, 10)
-                .foregroundColor(!isFocused ? .gray : .black)
+            .foregroundColor(!isFocused ? .gray : .black)
         }
     }
 }

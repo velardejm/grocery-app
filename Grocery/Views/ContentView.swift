@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var envData = EnvData()
     let defaults = UserDefaults.standard
     
     var body: some View {
@@ -17,6 +16,7 @@ struct ContentView: View {
                 Text("Recipes")
                 Image(systemName: "list.bullet")
             }
+            
             TestView().tabItem {
                 Text("Test View")
                 Image(systemName: "exclamationmark.triangle")
