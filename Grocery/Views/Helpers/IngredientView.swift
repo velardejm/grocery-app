@@ -46,7 +46,7 @@ struct IngredientView: View {
 
 struct TestTextFieldsView_Previews: PreviewProvider {
     static var previews: some View {
-        @State var ingredient = Ingredient(name: "", quantity: 0, unit: "")
+        @State var ingredient = Ingredient(id: 1, name: "", quantity: 0, unit: "")
         IngredientView(ingredient: $ingredient, availableWidth: 100)
     }
 }

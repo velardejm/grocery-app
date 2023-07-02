@@ -9,14 +9,13 @@ import SwiftUI
 
 struct RecipeListView: View {
     
-    @EnvironmentObject var envData: EnvData
-    
+    @EnvironmentObject var modelData: ModelData
      
     var body: some View {
         
         NavigationView {
             List {
-                ForEach($envData.recipeList) {$recipe in
+                ForEach($modelData.recipes) {$recipe in
                     NavigationLink {
                         RecipeView(recipe: $recipe)
                     } label: {
@@ -30,6 +29,6 @@ struct RecipeListView: View {
 
 struct RecipeListView_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeListView()
+        RecipeListView().environmentObject(ModelData())
     }
 }

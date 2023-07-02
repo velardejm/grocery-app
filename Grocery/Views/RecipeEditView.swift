@@ -65,7 +65,8 @@ struct RecipeEditView: View {
     }
     
     func addIngredient(){
-        let newIngredient = Ingredient(name: newName, quantity: newQuantity ?? 0, unit: newUnit)
+        let newIngredient = Ingredient(id:1,
+                                       name: newName, quantity: newQuantity ?? 0, unit: newUnit)
         recipe.ingredients.insert(newIngredient, at: 0)
         newName = ""
         newQuantity = nil
@@ -75,7 +76,7 @@ struct RecipeEditView: View {
 
 struct RecipeEditView_Previews: PreviewProvider {
     static var previews: some View {
-        @State var recipe = Recipe(name: "", ingredients: [])
+        @State var recipe = Recipe(id:1 ,name: "", ingredients: [])
         @State var dataChanged = false
         GeometryReader {geom in
             RecipeEditView(recipe: $recipe, dataChanged: $dataChanged ,geom: geom)

@@ -13,7 +13,8 @@ struct RecipeView: View {
     @State private var dataChanged = false
     @EnvironmentObject var envData: EnvData
     @Environment(\.dismiss) var dismiss
-    @State private var originalRecipe = Recipe(name: "", ingredients: [])
+    @State private var originalRecipe = Recipe(id:1, name: "", ingredients: [])
+    
     
     @State private var isShowingSaveConfirmation = false
     @State private var isShowingDismissConfirmation = false
@@ -104,7 +105,7 @@ struct RecipeView: View {
 
 struct RecipeView_Previews: PreviewProvider {
     static var previews: some View {
-        @State var recipe = Recipe(name: "", ingredients: [])
+        @State var recipe = Recipe(id:1, name: "", ingredients: [])
         
         RecipeView(recipe: $recipe)
     }

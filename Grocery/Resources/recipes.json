@@ -1,0 +1,13 @@
+[
+    {
+        "id": 1001,
+        "name": "Chicken Adobo",
+        "ingredients": [
+            {"id":2001, "name": "chicken", "quantity": 1, "unit": "kg"},
+            {"id":2002, "name": "garlic", "quantity": 1, "unit": "clove"},
+            {"id":2003, "name": "onion", "quantity": 1, "unit": "pcs"},
+            {"id":2004, "name": "soy sauce", "quantity": 100, "unit": "ml"},
+            {"id":2005, "name": "vinegar", "quantity": 50, "unit": "ml"}
+        ]
+    }
+]

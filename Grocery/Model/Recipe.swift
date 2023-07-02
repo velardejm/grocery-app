@@ -8,7 +8,7 @@
 import Foundation
 
 struct Recipe: Identifiable, Codable, Equatable {    
-    var id = UUID()
+    var id: Int
     var name: String
     var ingredients: [Ingredient]   
 }

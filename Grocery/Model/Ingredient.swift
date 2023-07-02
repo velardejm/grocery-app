@@ -8,9 +8,8 @@
 import Foundation
 
 struct Ingredient: Identifiable, Codable, Equatable {
-    var id = UUID()
+    var id: Int
     var name: String
     var quantity: Double
     var unit: String
-    
 }
